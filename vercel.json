@@ -1,7 +1,7 @@
 {
     "builds": [
         {
-            "src": "Charity_Donation_Platform/wsgi.py",
+            "src": "Donate_For_Autistic/wsgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -12,7 +12,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "Charity_Donation_Platform/wsgi.py"
+            "dest": "Donate_For_Autistic/wsgi.py"
         }
     ]
 }
