@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Integration</title>
+</head>
+<body>
+    <script src="https://www.paypal.com/sdk/js?client-id=Ad6QyD83iSgohVgPEGdt7NX10uhd4irhotSkmZY3nIB_BamuP7bZfj8GYf2juWi7NQWCqUhMPsW72fpn&currency=USD"></script>
+    <div id="paypal-button-container"></div>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '10.00' // Replace with the desired amount
+                        }
+                    }]
+                });
+            },
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    // Access the full name
+                    var payerFullName = details.payer.name.given_name + ' ' + details.payer.name.surname;
+
+                    alert('Transaction completed by ' + payerFullName + '!');
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>

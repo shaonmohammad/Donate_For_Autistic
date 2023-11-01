@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% load static %}
+
+{% block content %}
+</br></br>
+</br></br>
+<div class="container"> {# Add padding to both sides #}
+    {% if results %}
+        <div class="row">
+            {% for event in results %}
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <img src="{{event.pic.url}}" class="img-fluid" alt="Responsive image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event.title}}</h5>
+                            <p class="card-text">{{event.body}}</p>
+                            <br>
+                            <h5 class="card-title">Event Date: {{event.post_date}}</h5>
+                            <br>
+                            <a data-scroll-nav='1' href="{% url 'register' %}" class="btn btn-primary">Donate</a>
+                            <strong>{{event.post_data}}</strong>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> {# Close the div with padding #}
+{% else %}
+<div class="px-3"> {# Add padding to both sides #}
+    <div style="width: 50%; height: 500px; margin:auto;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">No result found</li>
+        </ul>
+    </div>
+</div> {# Close the div with padding #}
+{% endif %}
+{% endblock %}

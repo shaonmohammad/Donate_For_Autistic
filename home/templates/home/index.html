@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+{% load static %}
+{% block content %}
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1 overlay2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="slider_text ">
+                        <span>Donate Today.</span>
+                        <h3> Help the Autistic Children
+                            in Need</h3>
+                        <p>Helping autistic children fosters inclusivity, promotes their potential,<br> 
+                            and contributes to a more compassionate and equitable society.</p>
+                        <a href="{% url 'about' %}" class="boxed-btn3">Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+
+<!-- reson_area_start  -->
+<div class="reson_area section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb-55">
+                    <h3><span>Reason of Helping</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="single_reson">
+                    <div class="thum">
+                        <div class="thum_1">
+                            <img src="{% static "img/help/1.png" %}" alt>
+                        </div>
+                    </div>
+                    <div class="help_content">
+                        <h4>Collecting Fund</h4>
+                        <p>Help us support autistic children. Your donation provides essential resources for a brighter future. Give today, make a difference.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_reson">
+                    <div class="thum">
+                        <div class="thum_1">
+                            <img src="{% static "img/help/2.png" %}" alt>
+                        </div>
+                    </div>
+                    <div class="help_content">
+                        <h4>Doctor's Camp</h4>
+                        <p>Specialized doctor's camp for autistic children. Expert guidance, support, and hope. Join us in nurturing their potential. Transforming lives.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single_reson">
+                    <div class="thum">
+                        <div class="thum_1">
+                            <img src="{% static "img/help/3.png" %}" alt>
+                        </div>
+                    </div>
+                    <div class="help_content">
+                        <h4>Friendly Volunteer</h4>
+                        <p>Seeking friendly volunteers for autistic children. Your warmth and compassion make a world of difference. Join us in creating smiles.</p>
+                        <!-- <a href="#" class="read_more">Read More</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- reson_area_end  -->
+
+<!-- latest_activites_area_start  -->
+<div class="latest_activites_area">
+    <div
+        class=" video_bg_1 video_activite  d-flex align-items-center justify-content-center">
+        <a class="popup-video"
+            href="https://www.youtube.com/watch?v=MG3jGHnBVQs">
+            <i class="flaticon-ui"></i>
+        </a>
+    </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-lg-7">
+                <div class="activites_info">
+                    <div class="section_title">
+                        <h3> <span>Watch Our Latest </span><br>
+                            Activities</h3>
+                    </div>
+                    <p class="para_1">We kindly request your support in making a significant impact on the lives of autistic children. Your donation will provide essential resources, therapies, and educational opportunities that will empower them to reach their full potential. By contributing, you're not only enhancing the quality of life for these remarkable kids but also fostering understanding, inclusion, and acceptance within our society</p class="para_1">
+                        <p class="para_2">With your help, we can create a world where every autistic child is valued, cherished, and given the opportunity to thrive. Please consider donating today and be a part of this transformative journey towards a more compassionate and equitable world.</p>
+                        <a href="{%url 'register' %}" data-scroll-nav='1'
+                            class="boxed-btn4">Donate Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- latest_activites_area_end  -->
+
+    <!-- popular_causes_area_start  -->
+    
+    <div class="popular_causes_area section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb-55">
+                        <h3><span>Campaigns</span></h3>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="row">
+                 {% for event in events %}
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <div class="card">
+                        <img src="{{event.pic.url}}" class="img-fluid" alt="Responsive image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event.title}}</h5>
+                            <p class="card-text">{{event.body}}</p>
+                            <br>
+                            <h5 class="card-title">Event Date: {{event.post_date}}</h5>
+                            <br>
+                            <a data-scroll-nav='1' href="{% url 'register' %}"class="btn btn-primary">Donate</a>
+                            <strong>{{event.post_data}}</strong>
+                        </div>
+                    </div>
+                </div>
+ {% endfor %}
+            </div>
+           
+           
+        </div>
+    </div>
+
+    <!-- popular_causes_area_end  -->
+
+    <!-- counter_area_start  -->
+
+    <!-- counter_area_end  -->
+
+    <!-- our_volunteer_area_start  -->
+    <div class="our_volunteer_area section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb-55">
+                        <h3><span>Our Volunteer</span></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_volenteer">
+                        <div class="volenteer_thumb">
+                            <img src="{% static "img/volenteer/1.png" %}" alt>
+                        </div>
+                        <div class="voolenteer_info d-flex align-items-end">
+                            <div class="social_links">
+                                <ul>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info_inner">
+                                <h4>Sakil khan</h4>
+                                <p>Donner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_volenteer">
+                        <div class="volenteer_thumb">
+                            <img src="{% static "img/volenteer/2.png" %}" alt>
+                        </div>
+                        <div class="voolenteer_info d-flex align-items-end">
+                            <div class="social_links">
+                                <ul>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info_inner">
+                                <h4>Emran Ahmed</h4>
+                                <p>Volunteer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_volenteer">
+                        <div class="volenteer_thumb">
+                            <img src="{% static "img/volenteer/3.png" %}" alt>
+                        </div>
+                        <div class="voolenteer_info d-flex align-items-end">
+                            <div class="social_links">
+                                <ul>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-pinterest"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="info_inner">
+                                <h4>Sabbir Ahmed</h4>
+                                <p>Volunteer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- our_volunteer_area_end  -->
+
+    <!-- news__area_start  -->
+    <div class="news__area section_padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb-55">
+                        <h3><span>News</span></h3>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                 {% for news in all_news %}
+                <div class="col-sm-4 mb-3 mb-sm-0">
+                    <img src="{{news.pic.url}}" class="img-fluid" alt="Responsive image">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{news.title}}</h5>
+                            <p class="card-text">{{news.body}}</p>
+                            <br>
+                            <h5 class="card-title">Event Successfully Completed on: {{news.post_date}}</h5>
+                            <strong>{{news.post_data}}</strong>
+                        </div>
+                    </div>
+                </div>
+ {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- news__area_end  -->
+
+   
+            {% endblock %}

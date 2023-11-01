@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Blog Details{% endblock %}
+
+
+{% block content %}
+</br></br>
+</br></br>
+<div class="container">
+    
+    <h1>{{ post.title }}</h1>
+    <small>By: {{post.author}}</small></br>
+    <hr>
+    </br>
+    {{post.body|safe}}
+    <br></br>
+    <a href="{% url 'Blog' %}" class="btn btn-secondary">Back</a>
+
+    <br>
+    <br>
+    
+   <div class="col-md-5">
+{% comment %}-------- form area start--------- {% endcomment %}
+<form action="" method="POST">
+ {% csrf_token %} 
+<h5>Write Your Feedback </h5>
+<div>
+
+
+Name:
+<input type="text" class="form-control" name="name" placeholder="Enter your name">
+<br>
+
+Email:
+<input type="email" class="form-control" name="email" placeholder="Enter your Email">
+<br>
+Feedback:
+<textarea name="comment" rows="4" class="form-control" placeholder="Write your feedback"></textarea>
+    <br>
+    <input type="submit" value="Submit" class="btn btn-primary">
+</div>
+
+</form>
+
+    </div>
+</div>
+
+{% comment %}-------- form area End--------- {% endcomment %}
+</br></br>
+</br></br>
+
+{% endblock %}

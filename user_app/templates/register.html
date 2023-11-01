@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Registration Form</div>
+                <div class="card-body">
+                    <form  method="POST" action={% url 'hm' %}>
+                        <!-- Name Input -->
+                        <div class="form-group">
+                            {%csrf_token%}
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="username" required>
+                        </div>
+                        
+                        <!-- Email Input -->
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <!-- Mobile Number Input -->
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="tel" class="form-control" id="mobile" name="mobile" required>
+                        </div>
+
+                        <!-- Amount Number Input -->
+                        <div class="form-group">
+                            <label for="mobile">Amount:</label>
+                            <input type="tel" class="form-control" id="amount" name="amount" required>
+                        </div>
+                        
+            
+                        
+                        <!-- Submit Button -->
+                        <div class="text-center">
+                            {% comment %} <a data-scroll-nav='1' href="{% url 'paypal' %}"class="btn btn-primary">Donate</a> {% endcomment %}
+                            <button type="submit" class="btn btn-primary">Donate</button>
+
+                            {% comment %} <button type="submit" class="btn btn-primary"><a>href="{% url 'paypal' %}"</a>Donate</button> {% endcomment %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
+
